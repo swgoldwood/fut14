@@ -247,8 +247,7 @@ class Core(object):
             # update credits
             if 'credits' not in rc:
                 self.keepalive()  # credits not avaible in response, manualy updating
-            else:
-                self.credits = rc['credits']
+
         return rc
 
     def __get__(self, url, *args, **kwargs):
@@ -374,7 +373,7 @@ class Core(object):
         self.__delete__(url)  # returns nothing
         return True
 
-    def sendToTradepile(self, trade_id, item_id, safe=True):
+    def sendToTradepile(self, trade_id, item_id, safe=False):
         """Sends to tradepile (alias for __sendToPile__)."""
         if safe and len(self.tradepile()) >= self.tradepile_size:  # TODO?: optimization (don't parse items in tradepile)
             return False

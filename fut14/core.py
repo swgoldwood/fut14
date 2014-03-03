@@ -245,8 +245,8 @@ class Core(object):
                 else:
                     raise UnknownError(rc.__str__())
             # update credits
-            if 'credits' not in rc:
-                self.keepalive()  # credits not avaible in response, manualy updating
+            if 'credits' in rc:
+                self.credits = rc['credits']
 
         return rc
 
